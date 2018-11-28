@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import 'typeface-roboto';
 import './App.css';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import TopBar from './components/topbar'
+import Product from './components/product'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#27c26f' }, // Purple and green play nicely together.
+    secondary: { main: '#FFFFFF' }, // This is just green.A700 as hex.
+  },
+  typography: {
+   useNextVariants: true,
+ },
+});
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <TopBar/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <Product/>
+      </MuiThemeProvider>
     );
   }
 }
